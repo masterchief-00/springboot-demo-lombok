@@ -1,6 +1,7 @@
 package com.kwizera.springbbotdemolombok.controllers;
 
 import com.kwizera.springbbotdemolombok.domain.entities.Author;
+import com.kwizera.springbbotdemolombok.domain.entities.Book;
 import com.kwizera.springbbotdemolombok.repositories.AuthorRepository;
 import com.kwizera.springbbotdemolombok.services.AuthorServices;
 import lombok.RequiredArgsConstructor;

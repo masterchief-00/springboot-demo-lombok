@@ -12,4 +12,6 @@ public interface BookServices {
     List<Book> findAll();
 
     Optional<Book> findBook(long id);
+
+    Book updateBook(long bookId, Long authorId, Book book);
 }
