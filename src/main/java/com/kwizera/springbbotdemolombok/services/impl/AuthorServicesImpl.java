@@ -6,6 +6,7 @@ import com.kwizera.springbbotdemolombok.services.AuthorServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -21,5 +22,10 @@ public class AuthorServicesImpl implements AuthorServices {
     @Override
     public Author createAuthor(Author author) {
         return authorRepository.save(author);
+    }
+
+    @Override
+    public List<Author> findAllAuthors() {
+        return authorRepository.findAll();
     }
 }

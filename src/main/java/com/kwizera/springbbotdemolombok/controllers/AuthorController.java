@@ -4,10 +4,10 @@ import com.kwizera.springbbotdemolombok.domain.entities.Author;
 import com.kwizera.springbbotdemolombok.repositories.AuthorRepository;
 import com.kwizera.springbbotdemolombok.services.AuthorServices;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,5 +18,16 @@ public class AuthorController {
     @PostMapping
     public Author createAuthor(@RequestBody Author author) {
         return authorServices.createAuthor(author);
+    }
+
+    @GetMapping
+    public List<Author> getAllAuthors() {
+        return authorServices.findAllAuthors();
+    }
+
+    @GetMapping("/{authorId}")
+    public Author getAuthor(@PathVariable Long authorId) {
+        Optional<Author> author = authorServices.findAuthorById(authorId);
+        return author.orElse(null);
     }
 }
