@@ -11,4 +11,6 @@ public interface AuthorServices {
     Author createAuthor(Author author);
 
     List<Author> findAllAuthors();
+
+    Author updateAuthor(Long id, Author author);
 }
