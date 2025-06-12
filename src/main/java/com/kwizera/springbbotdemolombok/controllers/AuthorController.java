@@ -24,4 +24,10 @@ public class AuthorController {
     public List<Author> getAllAuthors() {
         return authorServices.findAllAuthors();
     }
+
+    @GetMapping("/{authorId}")
+    public Author getAuthor(@PathVariable Long authorId) {
+        Optional<Author> author = authorServices.findAuthorById(authorId);
+        return author.orElse(null);
+    }
 }
