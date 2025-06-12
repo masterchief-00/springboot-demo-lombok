@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface AuthorServices {
     Optional<Author> findAuthorById(long id);
+
+    Author createAuthor(Author author);
 }
