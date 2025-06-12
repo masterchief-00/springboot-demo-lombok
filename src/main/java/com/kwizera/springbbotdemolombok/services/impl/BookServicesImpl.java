@@ -7,6 +7,9 @@ import com.kwizera.springbbotdemolombok.services.BookServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class BookServicesImpl implements BookServices {
@@ -16,5 +19,15 @@ public class BookServicesImpl implements BookServices {
     public Book createBook(Author author, Book book) {
         book.setAuthor(author);
         return bookRepository.save(book);
+    }
+
+    @Override
+    public List<Book> findAll() {
+        return bookRepository.findAll();
+    }
+
+    @Override
+    public Optional<Book> findBook(long id) {
+        return bookRepository.findById(id);
     }
 }

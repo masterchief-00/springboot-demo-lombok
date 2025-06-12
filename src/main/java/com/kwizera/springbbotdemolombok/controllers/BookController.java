@@ -9,6 +9,7 @@ import com.kwizera.springbbotdemolombok.services.BookServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,5 +23,16 @@ public class BookController {
     public Book createBook(@RequestParam Long authorId, @RequestBody Book book) {
         Optional<Author> author = authorServices.findAuthorById(authorId);
         return author.map(value -> bookServices.createBook(value, book)).orElse(null);
+    }
+
+    @GetMapping
+    public List<Book> getAllBooks() {
+        return bookServices.findAll();
+    }
+
+    @GetMapping("/{id")
+    public Book getBook(@RequestParam Long bookId) {
+        Optional<Book> book = bookServices.findBook(bookId);
+        return book.orElse(null);
     }
 }
