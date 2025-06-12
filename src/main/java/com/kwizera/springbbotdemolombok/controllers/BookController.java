@@ -35,4 +35,9 @@ public class BookController {
         Optional<Book> book = bookServices.findBook(bookId);
         return book.orElse(null);
     }
+
+    @PutMapping("/{id}")
+    public Book updateBook(@PathVariable Long id, @RequestParam(required = false) Long authorId, @RequestBody Book updatedBook) {
+        return bookServices.updateBook(id, authorId, updatedBook);
+    }
 }
